@@ -1,0 +1,29 @@
+
+<p>listado Heroes!</p>
+
+<ul>
+    <li *ngFor="let heroe of heroes; let i=index">
+        {{i+1}}-{{heroe}}   <!--PARA Q APAREZCA EL Nº INDICE Y EL NOMBRE DEL HEROE EN NCADA ITERACION-->
+    </li>
+</ul>
+
+<!--
+<div *ngIf=" heroeBorrado !== '' ">      SI heroeBorrado ES DISTINTO DE NULL, QUE APAREZCA
+    <h3>heroe borrado: <small> {{heroeBorrado}} </small> </h3>
+    <span>{{heroeBorrado}}</span> 
+</div> -->
+
+<div *ngIf=" heroeBorrado ; else noBorrado">    
+    <h3>heroe borrado: <small> {{heroeBorrado}} </small> </h3>
+    
+</div>
+
+<ng-template #noBorrado>
+    <h3>no ha borrado nada</h3>
+</ng-template>
+
+<br>
+
+<button (click)="borrarHeroe()">
+    borrar
+</button>
